@@ -7,7 +7,6 @@
   <link rel="stylesheet" type="text/css" href="common/css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="common/css/common.css" />
   <script src="common/js/vue.js"></script>
-  <script src="common/js/reveal.js"></script>
 </head>
 <body>
   <div id="wrap">
@@ -35,6 +34,10 @@ var counter = (function() {
       count = count + 1;
       return count;
     },
+    resetCount: function() {
+      count = 0;
+      return count;
+    },
   };
 })();
 
@@ -44,42 +47,12 @@ console.log(counter.getCount());
 console.log(counter.incrementCount());
 
 console.log(counter.addCount(3));
+
+console.log(counter.resetCount());
 
 console.log(counter.getCount());
 
 </pre>
-<script>
-
-// ------ 関数スコープを使って、外部からアクセスできないオブジェクトを作る
-var counter = (function() {
-  // プライベート変数
-  var count = 0;
-
-  return {
-    getCount: function() {
-      return count;
-    },
-    addCount: function(num) {
-      count = count + num;
-      return count;
-    },
-    incrementCount: function() {
-      count = count + 1;
-      return count;
-    },
-  };
-})();
-
-
-console.log(counter.getCount());
-
-console.log(counter.incrementCount());
-
-console.log(counter.addCount(3));
-
-console.log(counter.getCount());
-
-</script>
 
 
 
@@ -112,6 +85,42 @@ console.log(counter.getCount());
     //     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
     //   ]
     // });
+
+  // ------ 関数スコープを使って、外部からアクセスできないオブジェクトを作る
+  var counter = (function() {
+    // プライベート変数
+    var count = 0;
+
+    return {
+      getCount: function() {
+        return count;
+      },
+      addCount: function(num) {
+        count = count + num;
+        return count;
+      },
+      incrementCount: function() {
+        count = count + 1;
+        return count;
+      },
+      resetCount: function() {
+        count = 0;
+        return count;
+      },
+    };
+  })();
+
+
+  console.log(counter.getCount());
+
+  console.log(counter.incrementCount());
+
+  console.log(counter.addCount(3));
+
+  console.log(counter.resetCount());
+
+  console.log(counter.getCount());
+
   </script>
 </body>
 </html>
