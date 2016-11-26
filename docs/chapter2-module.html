@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Welcome to Vue</title>
+  <link rel="stylesheet" type="text/css" href="common/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="common/css/common.css" />
+  <script src="common/js/vue.js"></script>
+  <script src="common/js/reveal.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <p><a :href="home.link">戻る</a></p>
+      <div>
+        # {{ title }}
+<pre>
+
+// ------ 関数スコープを使って、外部からアクセスできないオブジェクトを作る
+var counter = (function() {
+  // プライベート変数
+  var count = 0;
+
+  return {
+    getCount: function() {
+      return count;
+    },
+    addCount: function(num) {
+      count = count + num;
+      return count;
+    },
+    incrementCount: function() {
+      count = count + 1;
+      return count;
+    },
+  };
+})();
+
+
+console.log(counter.getCount());
+
+console.log(counter.incrementCount());
+
+console.log(counter.addCount(3));
+
+console.log(counter.getCount());
+
+</pre>
+<script>
+
+// ------ 関数スコープを使って、外部からアクセスできないオブジェクトを作る
+var counter = (function() {
+  // プライベート変数
+  var count = 0;
+
+  return {
+    getCount: function() {
+      return count;
+    },
+    addCount: function(num) {
+      count = count + num;
+      return count;
+    },
+    incrementCount: function() {
+      count = count + 1;
+      return count;
+    },
+  };
+})();
+
+
+console.log(counter.getCount());
+
+console.log(counter.incrementCount());
+
+console.log(counter.addCount(3));
+
+console.log(counter.getCount());
+
+</script>
+
+
+
+
+      </div>
+    </div>
+
+  </div><!-- /#wrap -->
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'モジュールパターン',
+        home: {
+            link: 'index.html',
+            text: 'home'
+        },
+      },
+    })
+
+    // // More info https://github.com/hakimel/reveal.js#configuration
+    // Reveal.initialize({
+    //   history: true,
+    //   // More info https://github.com/hakimel/reveal.js#dependencies
+    //   dependencies: [
+    //     { src: 'plugin/markdown/marked.js' },
+    //     { src: 'plugin/markdown/markdown.js' },
+    //     { src: 'plugin/notes/notes.js', async: true },
+    //     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    //   ]
+    // });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <link rel="stylesheet" type="text/css" href="common/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="common/css/common.css" />
+  <script src="common/js/vue.js"></script>
+
+
+
+</head>
+<body>
+  <div id="wrap">
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <p><a :href="home.link">戻る</a></p>
+      <ul>
+        <li v-for="data in urlList"><a :href="data.link" v-text="data.text"></a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#wrap -->
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'JS design pattern',
+        home: {
+            link: 'index.html',
+            text: 'home'
+        },
+        urlList: [
+          {
+            link: 'chapter2-module.html',
+            text: 'モジュールパターン'
+          },
+        ]
+      },
+    })
+  </script>
+</body>
+</html>
