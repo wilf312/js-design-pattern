@@ -1,16 +1,73 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-<title></title>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Welcome to Vue</title>
+  <link rel="stylesheet" type="text/css" href="common/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="common/css/common.css" />
+  <script src="common/js/vue.js"></script>
+
+
+
 </head>
 <body>
-<script>
+  <div id="wrap">
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <ul>
+        <li v-for="data in urlList"><a :href="data.link" v-text="data.text"></a></li>
+      </ul>
+    </div>
 
+  </div><!-- /#wrap -->
 
-
-
-</script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'JS design pattern',
+        urlList: [
+          {
+            link: 'index.html',
+            text: 'home'
+          },
+          {
+            link: 'chapter1.html',
+            text: 'デザインパターンとは？'
+          },
+          {
+            link: 'chapter2.html',
+            text: 'JS デザインパターン'
+          },
+          {
+            link: 'chapter3.html',
+            text: 'JS MV* パターン'
+          },
+          {
+            link: 'chapter4.html',
+            text: 'モダンなモジュラー JSデザインパターン'
+          },
+          {
+            link: 'chapter5.html',
+            text: 'jQueryのデザインパターン'
+          },
+          {
+            link: 'chapter6.html',
+            text: 'jQueryプラグインのデザインパターン'
+          },
+          {
+            link: 'chapter7.html',
+            text: '終わりに'
+          },
+        ]
+      },
+      methods: {
+        humanizeURL: function (url) {
+          return url
+            .replace(/^https?:\/\//, '')
+            .replace(/\/$/, '')
+        }
+      }
+    })
+  </script>
 </body>
 </html>

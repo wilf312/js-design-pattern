@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+
+html, body, #wrap {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font:10px;
+  font-family: "Yu Gothic", YuGothic;
+  line-height: 1.4em;
+}
+
+
+#wrap {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+a {
+  color: #000;
+  transition: opacity 0.5s;
+}
+
+a:hover {
+  opacity: 0.3;
+}
